@@ -1,6 +1,7 @@
 from django.urls import resolve
-from django.views.generic.base import TemplateResponseMixin
-from typing import Sequence
+from django.views.generic.base import TemplateResponseMixin, ContextMixin
+from typing import Any, Sequence
+
 
 class TemplateLocationMixin(TemplateResponseMixin):
     template_location = None
@@ -28,3 +29,13 @@ class TemplateLocationMixin(TemplateResponseMixin):
             print("No Template found 2")
             print(f"{ self.get_template_location()}/{self.template_name}")
             return f"{ self.get_template_location()}/{self.template_name}"
+
+
+class HtmxResponseMixin(TemplateLocationMixin, ContextMixin):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.htmx:
+            context["base_template"] = f"{self.get_base_location()}/partial.html"
+        else:
+            context["base_template"] = f"{self.get_base_location()}/base.html"
+        return context

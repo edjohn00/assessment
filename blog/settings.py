@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.facebook",
+    "django_htmx",
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # account middleware
     "allauth.account.middleware.AccountMiddleware",
+    "django_htmx.middlewere.HtmxMiddleware",
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -158,3 +160,5 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "apps.Blogger"
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
