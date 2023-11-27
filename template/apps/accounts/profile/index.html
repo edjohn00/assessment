@@ -1,1 +1,9 @@
-<h1>Blogger: {{User}}</h1>
+{% extends base_template %}
+
+{% block content %}
+    <h1>Blogger: {{User}}</h1>
+{% endblock content %}
+
+{% block app_content %}
+    <h1>Blogger: {{user.get_full_name}}</h1>
+{% endblock app_content %}
