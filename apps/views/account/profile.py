@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
-from apps.views.mixin import TemplateLocationMixin
+from apps.views.mixin import HtmxResponseMixin
 
-class IndexView(LoginRequiredMixin, TemplateLocationMixin, generic.TemplateView):
+
+class IndexView(LoginRequiredMixin, HtmxResponseMixin, generic.TemplateView):
     template_name = "index.html"

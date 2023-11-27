@@ -63,7 +63,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # account middleware
     "allauth.account.middleware.AccountMiddleware",
-    "django_htmx.middlewere.HtmxMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
