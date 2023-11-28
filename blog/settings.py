@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "django_htmx",
     "crispy_forms",
     "crispy_bootstrap4",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -167,3 +168,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSIONS_CLASSES": (
+        "rest_framework.permissions.DjangoModelPermissions",
+    ),
+}
