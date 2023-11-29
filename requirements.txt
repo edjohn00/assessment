@@ -8,5 +8,5 @@ django-htmx==1.17.2
 django-crispy-forms==2.1
 crispy-bootstrap4==2023.1
 pytest-django==4.7.0
-pytest-factoryboy==2.6.0
-pytest-cov==4.1.0
+pytest-factoryboy==2.
+djangorestframework==3.14.0
