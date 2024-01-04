@@ -1,6 +1,8 @@
 from django.urls import resolve
 from django.views.generic.base import TemplateResponseMixin, ContextMixin
 from typing import Any, Sequence
+from django_htmx.http import trigger_client_event
+from django.shortcuts import render
 
 
 class TemplateLocationMixin(TemplateResponseMixin):
@@ -39,3 +41,23 @@ class HtmxResponseMixin(TemplateLocationMixin, ContextMixin):
         else:
             context["base_template"] = f"{self.get_base_location()}/base.html"
         return context
+
+
+class ModalMixin:
+    modal_template = "blog/common/modal.html"
+    modal_title = None
+    modal_messgae = None
+    modal_form_action = None
+    modal_show = "modal-show"
+    modal_hx_swap = None
+    modal_allowed_close = True
+    modal_allowed_delete = False
+    modal_submit_class = "btn btn-primary"
+    modal_submit_value = "Submit"
+    modal_hx_boost = True
+    modal_hx_push_url = False
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        response = render(request, self.modal_template, context)
+        return trigger_client_event(response, self.modal_show)

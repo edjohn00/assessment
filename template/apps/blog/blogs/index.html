@@ -1,0 +1,21 @@
+{% extends base_template %}
+{% block title %}Bloggies | Blogs{% endblock title %}
+{% block page_title %}Blog list{% endblock page_title %}
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+
+{% block content %}
+<div class="container col-6">
+    <div>
+        <a class="m-3" href="#" hx-get="#" hx-target="#dialog" hx-indicator="#indicator" hx-push-url="false">Post Blog</a>
+    </div>
+        {% for blog in object_list %}
+            <div class="card" href="{{ blog.get_absolute_url }}" hx-get="{{ blog.get_absolute_url }}" hx-target="#content" hx-indicator="#indicator" hx-push-url="true">
+                <div class="card-body">
+                    <a>{{ blog.title }} ({{ blog.created_at }}) -- {{ blog.blogger }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% include "apps/include/pagination.html" %}
+</div>
+{% endblock content %}
