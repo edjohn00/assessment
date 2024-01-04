@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
 
-    <!-- adminlte -->
-    <script scr="{% static 'js/adminlte.min.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css ' %}" />
     <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}" />
-    <!-- bootstrap -->
+    <script src="{% static 'js/htmx.min.js' %}" defer></script>
+    <script src="{% static 'js/jquery-git.min.js' %}" defer></script>
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js ' %}" defer></script>
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootsrap.min.css ' %}" />
-    <script src="{% static 'htmx.min.js' %}" defer></script>
-    <script src="{% static 'js/jquery.min.js' %}" defer></script>
+    <script scr="{% static 'js/adminlte.min.js' %}" defer></script>
+
+
 
 </head>
     {% block body %}{% endblock body %}
